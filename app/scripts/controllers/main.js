@@ -11,11 +11,11 @@ angular.module('spaceshiplabsApp')
   .controller('MainCtrl', function ($scope, $mdSidenav) {
 
 	  $scope.toggleSidebar = function() {
-      $mdSidenav('left').open();
+      	$mdSidenav('left').open();
 	  };   
 
 	  $scope.closeSidebar = function() {
-      $mdSidenav('left').close();
+      	$mdSidenav('left').close();
 	  }; 
     
   });

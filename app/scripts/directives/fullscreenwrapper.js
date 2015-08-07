@@ -10,7 +10,7 @@
  .directive('fullScreenWrapper', function($window){
 
 
- 	return function (scope, element) {
+ 	return function (scope) {
  		var w = angular.element($window);
  		
  		scope.getWindowDimensions = function () {
@@ -18,7 +18,7 @@
  			return { 'h': w.height(), 'w': w.width() };
  		};
  		
- 		scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
+ 		scope.$watch(scope.getWindowDimensions, function (newValue) {
  			
  			scope.windowHeight = newValue.h;
  			scope.windowWidth = newValue.w;
@@ -28,7 +28,7 @@
  				var customHeight;
  				screenType = typeof screenType !== 'undefined' ? screenType : 'normal';
  				
- 				if(screenType == 'firstScreen'){
+ 				if(screenType === 'firstScreen'){
  					customHeight = newValue.h - header.outerHeight();
  				}else{
  					customHeight = newValue.h;
@@ -45,6 +45,6 @@
  		w.bind('resize', function () {
  			scope.$apply();
  		});
- 	}
+ 	};
 
  });
